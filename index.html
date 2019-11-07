@@ -23,7 +23,7 @@
   <script src="https://test.transafe.com/PaymentFrame/PaymentFrame.js"></script>
   <script>
     const frame = document.getElementById("myPaymentFrameId");
-    frame.setAttribute('data-hmac-timestamp', Date.now());
+    frame.setAttribute('data-hmac-timestamp', Date.now().toString());
     const paymentFrame = new PaymentFrame("myPaymentFrameId", "https://test.transafe.com");
     
     paymentFrame.setPaymentSubmittedCallback(res => {
