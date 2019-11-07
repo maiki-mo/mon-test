@@ -14,6 +14,7 @@
   <iframe
     id="myPaymentFrameId"
     data-hmac-hmacsha256="c9975f3bd3e021a47851affa3648d0756aa075d741e5a3cc2ce7a1c167f2d601"
+    data-hmac-timestamp="1573155464164"
     data-hmac-domain="https://maiki-mo.github.io/"
     data-hmac-sequence="abc123"
     data-hmac-username="test_ecomm:public"
@@ -23,7 +24,6 @@
   <script src="https://test.transafe.com/PaymentFrame/PaymentFrame.js"></script>
   <script>
     const frame = document.getElementById("myPaymentFrameId");
-    frame.setAttribute('data-hmac-timestamp', Date.now().toString());
     const paymentFrame = new PaymentFrame("myPaymentFrameId", "https://test.transafe.com");
     
     paymentFrame.setPaymentSubmittedCallback(res => {
