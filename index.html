@@ -14,7 +14,7 @@
   <iframe
     id="myPaymentFrameId"
     data-hmac-hmacsha256="c9975f3bd3e021a47851affa3648d0756aa075d741e5a3cc2ce7a1c167f2d601"
-    data-hmac-timestamp="1573155464164"
+    data-hmac-timestamp="1574719281908"
     data-hmac-domain="https://maiki-mo.github.io/"
     data-hmac-sequence="abc123"
     data-hmac-username="test_ecomm:public"
@@ -22,10 +22,16 @@
   >
   </iframe>
   <script src="https://test.transafe.com/PaymentFrame/PaymentFrame.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9/crypto-js.js"></script>
   <script>
+    const hostDomain = "https://maiki-mo.github.io/";
+    const timestamp = Date.now().toString();
+    const sequence = "abc123";
+    const username = "test_ecomm:public";
+    const expdateFormat = "separate-selects";
     const frame = document.getElementById("myPaymentFrameId");
     const paymentFrame = new PaymentFrame("myPaymentFrameId", "https://test.transafe.com");
-    
+
     paymentFrame.setPaymentSubmittedCallback(res => {
       if (res.code === 'AUTH') console.log('The CardShield ticket is:', res.ticket);
       else console.log('failure', res.verbiage);
@@ -35,3 +41,11 @@
   </script>
 </body>
 </html>
+
+<!-- 
+data-hmac-hmacsha256="c9975f3bd3e021a47851affa3648d0756aa075d741e5a3cc2ce7a1c167f2d601"
+data-hmac-timestamp="1573155464164"
+data-hmac-domain="https://maiki-mo.github.io/"
+data-hmac-sequence="abc123"
+data-hmac-username="test_ecomm:public"
+data-hmac-expdate-format="separate-selects" -->
